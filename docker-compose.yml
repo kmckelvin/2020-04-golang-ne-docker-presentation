@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  go-app:
+    image: golang:1.14
+    working_dir: /usr/src
+    volumes:
+      - .:/usr/src
+    environment:
+      PORT: 3010
+    command: go run main.go
+    ports:
+      - "3010:3010"
+
+  redis:
+    image: redis
+    expose:
+      - 6379
